@@ -1,0 +1,877 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;700&family=Roboto:wght@400;500;700&display=swap')
+
+// ===== MIXIN =====
+@mixin roboto
+  font-family: 'Roboto', sans-serif
+
+@mixin quicksand
+  font-family: 'Quicksand', sans-serif
+
+@mixin list-null
+  padding: 0
+  margin: 0
+  list-style: none
+// ===== / MIXIN =====
+
+// ===== VARIABLES =====
+$base: 4px
+
+$fw-light: 300
+$fw-regular: 400
+$fw-medium: 500
+$fw-bold: 700
+
+$fs-sm: 12px
+$fs-md: 15px
+$fs-lg: 18px
+
+$padding-vertical-xs: $base * 5
+$padding-vertical-sm: $base * 15
+$padding-vertical: $base * 30
+
+$transition: .2s
+
+$color-divider: #d8e3fe
+
+$color-white: #fff
+
+// Red
+$color-danger: #d43f3f
+$color-danger-50: #ffd7d7
+
+// Yellow
+$color-warning: #fac30ebb
+
+// Orange
+$color-orange: #ff821cbd
+
+// Gray
+$color-primary-50: #f1f5ff
+$color-primary-100: #efeff7
+$color-primary-200: #e8ecf4
+$color-primary-300: #dae4fe
+$color-primary-400: #d1d1e4
+$color-primary-500: #aeb8d0
+$color-primary-600: #8d96bd
+$color-primary-700: #7a85ad
+$color-primary-800: #676f95
+$color-primary-900: #565f82
+$color-primary: #495274
+
+// Blue
+$color-secondary-alfa: #539dffc9
+$color-secondary-100: #c7d3ff
+$color-secondary-200: #b5c8fc
+$color-secondary-300: #7d8fda
+$color-secondary-400: #5283ff
+$color-secondary-500: #5379ff
+$color-secondary-600: #3a79ff
+$color-secondary-700: #4074f8
+$color-secondary-800: #4869dd
+$color-secondary-900: #3d4f9f
+$color-secondary: #6188ff
+
+// ===== / VARIABLES =====
+
+// ===== COMMON =====
+body
+  @include roboto
+
+  color: $color-primary-600
+
+.section-outer
+  border-bottom: 1px solid $color-divider
+
+.section-inner
+  max-width: 900px
+  padding-top: $padding-vertical
+  padding-bottom: $padding-vertical
+  margin: 0 auto
+
+  &--wide
+    max-width: 1200px
+
+h1, h2, h3, h4, h5, h6
+  @include quicksand
+
+  margin: 0
+  padding: 0
+  font-weight: $fw-regular
+
+h2
+  @include roboto
+
+  font-size: 10px
+  margin-bottom: $base*4
+  text-transform: uppercase
+  color: $color-secondary-900
+//   margin-bottom: $base*7
+//   font-size: 48px
+
+// h3
+//   margin-bottom: $base*7
+//   font-size: 36px
+
+// h4
+//   margin-bottom: $base*22
+//   font-size: 24px
+
+// h5
+//   @include roboto
+
+//   font-size: 10px
+//   margin-bottom: $base*4
+//   text-transform: uppercase
+
+.subtitle
+  margin-bottom: $base*8
+  font-size: 48px
+  color: $color-secondary-900
+  @include quicksand
+
+
+.ta-c
+  text-align: center
+
+.dots
+  display: flex
+  justify-content: center
+  @include list-null
+
+  &__item
+    width: $base*2
+    height: $base*2
+    cursor: pointer
+    background-color: $color-primary-400
+    border-radius: 100%
+    transition: $transition
+
+    &--active
+      background-color: $color-secondary-400
+
+    & + &
+      margin-left: $base*3
+
+.btn-group
+  display: inline-flex
+  .btn:nth-child(1)
+    border-top-right-radius: 0
+    border-bottom-right-radius: 0
+  .btn:nth-child(2)
+    border-top-left-radius: 0
+    border-bottom-left-radius: 0
+
+.input
+  font-size: $fs-sm
+  padding: $base*3 $base*4
+  border: 1px solid transparent
+  background-color: $color-primary-100
+  color: $color-primary-700
+  border-radius: $base/2
+
+  &--size-lg
+    padding: $base*5 $base*6
+    border-radius: $base
+
+.btn
+  @include quicksand
+
+  display: inline-block
+  box-sizing: border-box
+  font-weight: $fw-bold
+  font-size: $fs-sm
+  padding: $base*3 $base*4
+  margin: 0
+  white-space: nowrap
+  text-decoration: none
+  border: 1px solid transparent
+  border-radius: $base/2
+  transition: $transition
+  cursor: pointer
+
+  &--size-lg
+    padding: $base*5 $base*15
+    background-color: $color-secondary-800
+    color: $color-white
+    border-radius: $base
+
+  &--primary
+    background-color: $color-primary-300
+    color: $color-secondary-600
+    &:hover
+      background-color: darken($color-primary-300, 35%)
+      color: $color-white
+
+  &--danger
+    background-color: $color-danger-50
+    color: $color-danger
+    &:hover
+      background-color: darken($color-danger, 4%)
+      color: $color-white
+
+  &--secondary
+    background-color: $color-secondary-600
+    color: $color-white
+    &:hover
+      background-color: darken($color-primary-300, 8%)
+    &-inverted
+      background-color: $color-white
+      color: $color-primary-900
+      &:hover
+        background-color: $color-secondary-300
+        color: $color-white
+
+  &--no-bg
+    border: 1px solid $color-primary-400
+    color: $color-primary-500
+    &:hover
+      border: 1px solid darken($color-primary-400, 10%)
+      color: darken($color-primary-500, 10%)
+    &-inverted
+      color: $color-secondary-100
+      border: 1px solid $color-secondary-100
+      &:hover
+        background-color: darken($color-primary-300, 8%)
+
+  &--grayscale
+    background-color: $color-primary-200
+    color: $color-primary-800
+    &:hover
+      background-color: darken($color-primary-200, 8%)
+
+.visually-hidden
+  position: absolute
+  width: 1px
+  height: 1px
+  padding: 0
+  margin: -1px
+  overflow: hidden
+  border: 0
+  clip: rect(0 0 0 0)
+  
+// ===== / COMMON =====
+
+// ===== HEADER =====
+.section-header
+  .section-inner
+    padding: $padding-vertical-xs 0
+
+.main-navigation
+  display: flex
+  align-items: center
+
+.logo
+
+  &__link
+    display: block
+    width: $base*6
+    height: $base*6
+    border-radius: 100%
+    background-color: $color-secondary-500
+
+.nav
+  margin-left: $base*18
+
+.nav-wrapper
+  display: flex
+  @include list-null
+
+  &__item
+    & + &
+      margin-left: $base*10
+
+    &-link
+      @include quicksand
+
+      font-size: $fs-sm
+      font-weight: $fw-medium
+      color: $color-primary
+      text-decoration: none
+      transition: $transition
+
+      &:hover
+        color: $color-secondary
+
+      &--active
+        font-weight: $fw-bold
+        color: $color-secondary
+
+.socials
+  margin-left: auto
+
+.socials-wrapper
+  display: flex
+  align-items: center
+  @include list-null
+
+  &__item
+    & + &
+      margin-left: $base*10
+
+    &-link
+      path
+        fill: $color-primary-500
+        transition: $transition
+      &:hover
+        path
+          fill: $color-secondary
+
+.btn-wrapper
+  margin-left: $base*11
+
+// ===== / HEADER =====
+
+// ===== HERO IMAGE =====
+.section-hero-image
+  position: relative
+  background-color: $color-primary-50
+
+  .dots
+    position: absolute
+    bottom: $base*7
+    left: 50%
+    transform: translateX(-50%)
+
+.slider-hero-image
+  @include list-null
+
+  &__item
+    height: $base*140
+    background-position: 50% 50%
+    background-repeat: no-repeat
+    background-size: cover
+    text-align: center
+
+    &-content
+      .subtitle
+        font-weight: $fw-light
+
+        span
+          font-weight: $fw-medium
+
+      .text
+        max-width: 55%
+        margin: 0 auto $base*5
+        line-height: 2
+
+.icon-play
+  display: inline-flex
+  align-items: center
+  justify-content: center
+  width: $base*13
+  height: $base*13
+  border-radius: 100%
+  background-color: $color-white
+  box-shadow: 0 $base*2 $base*12 rgba($color-primary-400, .6)
+
+  svg
+    width: $base*3
+    height: $base*3
+// ===== / HERO IMAGE =====
+
+// ===== CUSTOMERS =====
+.section-customers
+  .section-inner
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding-top: $padding-vertical-sm
+    padding-bottom: $padding-vertical-sm
+
+    a
+      opacity: .4
+      transition: $transition
+
+      &:hover
+        opacity: 1
+
+// ===== / CUSTOMERS =====
+
+// ===== PLAN-AND-MANAGE =====
+.section-plan-and-manage
+  position: relative
+  background-color: $color-primary-50
+  overflow: hidden
+
+  &__content
+    width: 50%
+
+    .aside-image
+      position: absolute
+      top: 0
+      left: 43%
+    .subtitle
+      font-weight: $fw-light
+
+      span
+        font-weight: $fw-medium
+
+    .text
+      margin-bottom: $base*12
+      line-height: 2
+
+    .btn-group
+      svg
+        margin-left: $base
+// ===== / PLAN-AND-MANAGE =====
+
+// ===== FEATURES =====
+.section-features
+  background: url(../Img/clouds.svg) no-repeat 50% 50%
+
+  .subtitle
+    font-size: 24px
+    font-weight: $fw-medium
+    color: $color-secondary-900
+
+  .btns
+    display: flex
+    justify-content: center
+    margin: 0 auto
+
+  .or-block
+    display: inline-flex
+    align-items: center
+    margin: 0 $base*4
+    font-size: $fs-sm
+    font-weight: $fw-medium
+
+    &::before,
+    &::after
+      content: ''
+      display: block
+      width: $base*4
+      height: 1px
+      background-color: $color-primary-400
+
+    &::before
+      margin-right: $base*4
+
+    &::after
+      margin-left: $base*4
+
+.features-list
+  display: flex
+  margin: 0 0 $base*25
+  padding: 0
+  list-style: none
+  text-align: center
+
+  &__item
+    position: relative
+    flex-basis: 21%
+
+    &:not(:first-child)
+      margin-left: $base*10
+
+    &:not(:first-child)::before
+      position: absolute
+      top: $base*30
+      right: $base*48
+      width: $base*7
+      height: 1px
+      background-color: $color-primary-300
+      content: ''
+
+    &-icon
+      display: flex
+      justify-content: center
+      align-items: center
+      width: $base*17
+      height: $base*17
+      margin: 0 auto $base*8
+      background-color: $color-primary-50
+      border-radius: 100%
+
+    &-title
+      @include roboto
+
+      font-weight: $fw-bold
+      font-size: $fs-md
+      color: $color-secondary-700
+      margin-bottom: $base*7
+
+    &-text
+      line-height: 2
+
+// ===== / FEATURES =====
+
+// ===== STATS =====
+.section-stats
+  display: flex
+  background-color: $color-primary-100
+
+  &__number
+    @include quicksand
+
+    color: $color-white
+    h3
+      color: $color-secondary-400
+      
+
+  &__text
+    @include quicksand
+
+    width: 40%
+    font-size: $fs-lg
+    font-weight: $fw-medium
+
+  &__left, &__right
+    display: flex
+    flex-direction: column
+    flex-basis: 50%
+    padding: $base*16 $base*22
+    list-style: none
+
+    img
+      margin-bottom: $base*6
+
+    h3
+      font-size: 48px
+      margin-bottom: $base*6
+  &__left
+    text-align: right
+    background: rgb(121,149,255)
+    background: linear-gradient(45deg, $color-secondary-500 0%, $color-secondary-800 100%)
+    color: $color-white
+    align-items: flex-end
+
+  &__right
+    background: rgb(147,176,255)
+    background: linear-gradient(-49deg, $color-secondary-200 0%, rgba(224,233,255,1) 100%)
+    color: $color-secondary-400
+    align-items: flex-start
+
+// ===== / STATS =====
+
+// ===== BLOG =====
+.section-blog
+  background-color: $color-primary-50
+
+  .subtitle
+    font-size: 24px
+    font-weight: $fw-medium
+
+  // h4
+  //   font-weight: $fw-medium
+
+.slider-wrapper
+  margin-bottom: $base*25
+  position: relative
+
+.slider-blog
+  @include list-null
+
+  box-shadow: 0 $base*4 $base*12 $color-primary-100
+  border: 1px solid $color-primary-300
+  background-color: $color-white
+
+  &__item
+    display: flex
+    padding: $base*16 $base*8
+
+    &-gallery, &-content
+      flex-basis: 45%
+
+    &-gallery
+      display: grid
+      grid-template-rows: repeat(2, $base*30)
+      grid-template-columns: repeat(3, $base*30)
+      grid-gap: $base*3
+
+      .image-link
+        position: relative
+        display: block
+        overflow: hidden
+        border-radius: $base
+        box-shadow: 0 $base*4 $base*9 $color-primary-200
+
+        .loupe
+          position: absolute
+          top: 50%
+          left: 50%
+          display: block
+          width: $base*16
+          height: $base*16
+          border-radius: 100%
+          background: $color-white url(../Img/loupe.svg) no-repeat 50% 50%
+          transform: translate(-50%, -50%)
+          transition: $transition
+          opacity: 0
+
+        &:hover
+          .loupe
+            opacity: 1
+
+        img
+          width: 100%
+          height: 100%
+          object-fit: cover
+
+        &::before
+          position: absolute
+          top: 0
+          right: 0
+          bottom: 0
+          left: 0
+          content: ''
+
+        &--big
+          grid-row: 1 / 3
+          grid-column: 1 / 3
+
+          &::before
+            background: linear-gradient(180deg, rgba(255,255,255,0) 20%, $color-warning 100%)
+
+        &--sm1
+          grid-row: 1 / 2
+          grid-column: 3 / 4
+
+          &::before
+            background: linear-gradient(180deg, rgba(255,255,255,0) 20%, $color-orange 100%)
+        &--sm2
+          grid-row: 2 / 3
+          grid-column: 3 / 4
+
+          &::before
+            background: linear-gradient(180deg, rgba(255,255,255,0) 10%, $color-secondary-alfa 100%)
+
+    &-content
+      margin-left: 10%
+
+      h3
+        margin-bottom: $base*7
+        font-size: 36px
+        color: $color-secondary-900
+
+      .title
+        margin-bottom: $base*8
+
+      .text
+        margin-bottom: $base*10
+        font-size: $fs-md
+        line-height: 2
+
+.btn-blog
+  position: absolute
+  top: 50%
+  display: block
+  width: $base*10
+  height: $base*10
+  background: url(../Img/Vector.svg) no-repeat 50% 50%
+
+  &--prev
+    right: 100%
+    transform: translateY(-50%)
+    margin-right: $base*16
+
+  &--next
+    margin-left: $base*16
+    transform: translateY(-50%) rotate(180deg)
+    left: 100%
+// ===== / BLOG =====
+
+// ===== QUOTES =====
+.section-quotes
+  background: linear-gradient($color-primary-100, $color-primary-50)
+
+  .section-inner
+    display: flex
+    justify-content: space-between
+
+    .subtitle
+      font-size: 36px
+      font-weight: $fw-medium
+
+  &__right
+    flex-basis: 50%
+
+  &__left
+    flex-basis: 40%
+
+    .text
+      line-height: 2
+
+.slider-quotes
+  @include list-null
+
+  margin-bottom: $base*20
+
+  &__item
+    position: relative
+    border: 1px solid $color-primary-300
+    background-color: $color-white
+    padding: $base*10 $base*17 $base*15
+    box-shadow: 0 $base $base*12 $color-white
+
+    &-text
+      font-size: $fs-md
+      line-height: 2
+      color: $color-primary-800
+
+    &-photo
+      $height: $base*15
+
+      position: absolute
+      top: 100%
+      left: 50%
+      width: $base*15
+      height: $base*15
+      margin-top: -$height/2
+      overflow: hidden
+      background-color: $color-white
+      border-radius: 100%
+      transform: translateX(-50%)
+
+// ===== / QUOTES =====
+
+// ===== FAQ =====
+.section-faq
+  .section-inner
+    .subtitle
+      font-size: 24px
+      font-weight: $fw-medium
+
+.faq-accordion
+
+  @include list-null
+
+  &__item
+    $parent: &
+
+    border-bottom: 1px solid $color-primary-300
+
+    &--active
+      .arrow
+        stroke: $color-primary
+
+      #{$parent}-trigger
+        color: $color-primary
+        font-weight: $fw-bold
+
+        &-icon
+          transform: rotate(0)
+
+      #{$parent}-content
+        display: flex
+
+    &-trigger
+      display: flex
+      cursor: pointer
+      padding: $base*4
+
+      &-icon
+        width: $base*4
+        margin-right: $base*4
+        text-align: center
+        transform: rotate(180deg)
+
+        .arrow
+          stroke: $color-primary-600
+
+      &-text
+        font-size: $fs-md
+
+    &-content
+      display: none
+      padding: 0 $base*4 $base*4 $base*12
+
+      &-text
+        flex: grow
+        line-height: 2
+        font-size: $fs-md
+
+      &-btn
+        margin-left: $base*15
+
+// ===== / FAQ =====
+
+// ===== GET-STARTED =====
+.section-get-started
+  position: relative
+  text-align: center
+  color: $color-white
+  background: linear-gradient($color-secondary-300, $color-secondary-800)
+
+  &::before
+    content: ''
+    position: absolute
+    top: 0
+    bottom: 0
+    right: 0
+    z-index: 5
+    left: 0
+    background: url(../Img/bg-clouds.svg) no-repeat 50% 50%
+
+  .section-inner
+    position: relative
+    z-index: 10
+
+    h2
+      color: $color-white
+
+    .subtitle
+      font-weight: $fw-light
+      color: $color-white
+      span
+        font-weight: $fw-medium
+
+    .text
+      line-height: 2
+      max-width: 75%
+      margin: 0 auto $base*10
+
+// ===== / GET-STARTED =====
+
+// ===== NEW-LETTERS =====
+.section-new-letters
+  background-color: $color-white
+
+  .section-inner
+    display: flex
+    justify-content: space-between
+
+  &__left
+    flex-basis: 35%
+
+    &-title
+      @include quicksand
+
+      font-weight: $fw-bold
+      font-size: $fs-lg
+      color: $color-secondary-900
+      margin-bottom: $base*4
+
+    &-text
+      font-size: $fs-md
+      line-height: 2
+
+  &__right
+    flex-basis: 55%
+
+.form-newletter
+  display: flex
+
+  &__input
+    flex-grow: 1
+
+  &__btn
+    margin-left: $base*3
+// ===== / NEW-LETTERS =====
+
+// ===== FOOTER =====
+.section-footer
+  border-bottom: 0
+  .section-inner
+    padding-top: $padding-vertical-sm
+    padding-bottom: $padding-vertical-sm
+
+.copyright
+  @include quicksand
+
+  margin-top: $base*7
+  margin-left: $base*24
+  font-size: $fs-sm
+  font-weight: $fw-medium
+  color: $color-primary-500
+// ===== / FOOTER =====
