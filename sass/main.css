@@ -252,13 +252,14 @@ h2 {
   font-weight: 500;
   color: #495274;
   text-decoration: none;
-  -webkit-transition: 0.2s;
-  transition: 0.3s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .nav-wrapper__item-link:hover {
   color: #6188ff;
   border-bottom: 1px solid #6188ff;
+  transition: 0.4s
 }
 
 .nav-wrapper__item-link--active {
