@@ -253,11 +253,12 @@ h2 {
   color: #495274;
   text-decoration: none;
   -webkit-transition: 0.2s;
-  transition: 0.2s;
+  transition: 0.3s;
 }
 
 .nav-wrapper__item-link:hover {
   color: #6188ff;
+  border-bottom: 1px solid #6188ff;
 }
 
 .nav-wrapper__item-link--active {
